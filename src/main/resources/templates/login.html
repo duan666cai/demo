@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>登陆</title>
+    <title>登陆页面</title>
 </head>
 <body>
-<h2>登陆dfc页面</h2>
+<h2>登陆页面<h2>
+    <div>
+        <form action="/login" method="post">
+            <label for="">用户名</label>
+            <input type="text" name="username" placeholder="用户名">
+            <label for="">密码</label>
+            <input type="password" name="password" placeholder="密码">
+            <input type="submit" value="登陆">
+        </form>
+        <h2 th:utext="${msg2}"></h2>
+    </div>
+
+<p th:text="${msg2}"></p>
+
 </body>
 </html>
