@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>系统主页</title>
+</head>
+<body>
+<h2>数据结构知识点管理系统</h2>
+<h3 th:utext="${msg8}"></h3>
+<div>
+    <form action="/addshuju" method="post">
+        <label for="">标题</label>
+        <input type="text" name="biaoti" placeholder="标题">
+        <label for="">内容</label>
+        <input type="test" name="leirong" placeholder="内容">
+        <input type="submit" value="添加知识点">
+    </form>
+    <h2 th:utext="${msg1}"></h2>
+</div>
+
+<div>
+    <form action="/deleteshuju" method="post">
+        <label for="">标题</label>
+        <input type="text" name="biaoti" placeholder="标题">
+        <input type="submit" value="删除知识点">
+    </form>
+    <h2 th:utext="${msg2}"></h2>
+</div>
+
+<div>
+    <form action="/getleirong" method="post">
+        <label for="">标题</label>
+        <input type="text" name="biaoti"  placeholder="标题">
+        <input type="submit" value="查找知识点">
+    </form>
+    <h2 th:utext="${msg4}"></h2>
+</div>
+
+<div>
+    <form action="/Updateshuju" method="post">
+              <label for="">标题</label>
+             <input type="text" name="biaoti" placeholder="标题">
+             <label for="">内容</label>
+             <textarea type="text" name="leirong"  rows="7" cols="60" th:text="${msg3}"  ></textarea>
+             <!--      <input type="test" name="leirong" placeholder="内容">      -->
+        <input type="submit" value="更改知识点">
+    </form>
+    <!--  <h2 th:utext="${msg3}"></h2>     -->
+ </div>
+<!--
+ <div>
+     <form action="/display" method="post">
+         <input type="submit" value="查看所有知识点">
+     </form>
+     <h2 th:utext="${msg5}"></h2>
+ </div>
+ -->
+ <div>
+     <form action="/allbiaoti" method="post">
+         <input type="submit" value="查看所有标题">
+     </form>
+     <h3 th:utext="${msg6}"></h3>
+ </div>
+
+ <div>
+     <form action="/alldisplay" method="post">
+         <input type="submit" value="查看所有内容">
+     </form>
+ </div>
+
+<div class="content" th:each="memberEntry,memberStat:${allDatas}" >
+    <h4 th:text="${memberEntry.value.biaoti}"></h4>
+    <p th:text="${memberEntry.value.leirong}"></p>
+</div>
+
+ </body>
+ </html>
