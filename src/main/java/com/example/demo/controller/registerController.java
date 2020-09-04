@@ -50,6 +50,7 @@ public class registerController {
             map.put("msg1", "the user has been used,pls register again");
             return "register";
         } else {
+            map.put("msg1", "register success");
             userMapper.adduser(user);
             return "login";
         }
@@ -60,6 +61,7 @@ public class registerController {
         String username = request.getParameter("username");
         User user = userMapper.getuser(username);
         if (user!= null) {
+<<<<<<< HEAD
             map.put("msg2", "the user has been registered!");
             return "register";
         } else {
@@ -76,6 +78,36 @@ public class registerController {
         String password = request.getParameter("password");
         User getuser = userMapper.login(username,password);
         if (getuser != null) {
+=======
+            map.put("msg", "the user has been registered!");
+            return "login";
+        } else {
+            map.put("msg", "the user has not been used!");
+            return "login";
+        }
+    }
+
+    @RequestMapping("/login")
+    public String login(HttpServletRequest request, Map<String,Object> map){
+        String username = request.getParameter( "username");
+        String password = request.getParameter( "password");
+        User loginuser = userMapper.login(username, password);
+        System.out.println(loginuser);
+        if (loginuser != null) {
+            return "all knowledge";
+        } else {
+            map.put("msg2", "the user is not a legal user");
+            return "login";
+        }
+    }
+
+    @RequestMapping("/delete")
+    public String delete(HttpServletRequest request, Map<String,Object> map){
+        String username = request.getParameter( "username");
+        String password = request.getParameter( "password");
+         User getuser1 = userMapper.getuser1(username, password);
+        if (getuser1 != null) {
+>>>>>>> 0251e74fde4b1f642d263e27f994c5089e38ba00
             userMapper.deleteuser(username);
             map.put("msg2", "the user has been deleted!");
             return "login";
@@ -90,7 +122,11 @@ public class registerController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String newpassword = request.getParameter("newpassword");
+<<<<<<< HEAD
         User getuser = userMapper.login(username,password);
+=======
+        User getuser = userMapper.getuser1(username, password);
+>>>>>>> 0251e74fde4b1f642d263e27f994c5089e38ba00
         if (getuser != null) {
             userMapper.updateuser(username,newpassword);
             map.put("msg3", "the user has been updated!");
@@ -101,4 +137,41 @@ public class registerController {
         }
     }
 
+<<<<<<< HEAD
+=======
+    @RequestMapping("/zhanyuduilie")
+    public String zhanyuduilie(HttpServletRequest request, Map<String,Object> map) {
+        return "zhanyuduilie";
+    }
+
+    @RequestMapping("/shuzu")
+    public String shuzu(HttpServletRequest request, Map<String,Object> map) {
+        return "shuzu";
+    }
+
+    @RequestMapping("/xianxingbiaoyulianbiao")
+    public String xianxingbiaoyulianbiao(HttpServletRequest request, Map<String,Object> map) {
+        return "xianxingbiaoyulianbiao";
+    }
+
+    @RequestMapping("/shu")
+    public String shu(HttpServletRequest request, Map<String,Object> map) {
+        return "shu";
+    }
+
+    @RequestMapping("/tu")
+    public String tu(HttpServletRequest request, Map<String,Object> map) {
+        return "tu";
+    }
+
+    @RequestMapping("/chazhao")
+    public String chazhao(HttpServletRequest request, Map<String,Object> map) {
+        return "chazhao";
+    }
+
+    @RequestMapping("/paixu")
+    public String paixu(HttpServletRequest request, Map<String,Object> map) {
+        return "paixu";
+    }
+>>>>>>> 0251e74fde4b1f642d263e27f994c5089e38ba00
 }

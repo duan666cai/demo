@@ -5,7 +5,7 @@
     <title>登陆页面</title>
 </head>
 <body>
-<h2>登陆页面<h2>
+<h2>数据结构知识点管理系统登录<h2>
     <div>
         <form action="/login" method="post">
             <label for="">用户名</label>
@@ -18,7 +18,7 @@
     </div>
 
     <div>
-        <form action="/deleteuser" method="post">
+        <form action="/delete" method="post">
             <label for="">用户名</label>
             <input type="text" name="username" placeholder="用户名">
             <label for="">密码</label>
@@ -40,6 +40,27 @@
         </form>
         <h2 th:utext="${msg3}"></h2>
     </div>
+
+    <div>
+        <form action="/adduser" method="post">
+            <label for="">用户名</label>
+            <input type="text" name="username" placeholder="用户名">
+            <label for="">密码</label>
+            <input type="password" name="password" placeholder="密码">
+            <input type="submit" value="注册">
+        </form>
+        <h2 th:utext="${msg1}"></h2>
+    </div>
+
+    <div>
+        <form action="/getuser" method="post">
+            <label for="">用户名</label>
+            <input type="text" name="username" placeholder="用户名">
+            <input type="submit" value="查找用户">
+        </form>
+        <h2 th:utext="${msg}"></h2>
+    </div>
+
 
 </body>
 </html>
